@@ -6,7 +6,6 @@ public class MapTile : MonoBehaviour
 {
     // Start is called before the first frame update
     public float distanceUntilDestroyed;
-    Rigidbody2D rb;
     Player player;
 
     void Start()
@@ -15,8 +14,12 @@ public class MapTile : MonoBehaviour
     }
 
     private void Update()
-    {        
-        if(Vector2.Distance(player.gameObject.transform.position, transform.position) > distanceUntilDestroyed)
+    {
+        if (player.isDead)
+            return;
+
+        float distanceFromPlayer = (player.gameObject.transform.position - transform.position).x;
+        if (distanceFromPlayer > distanceUntilDestroyed)
         {
             Destroy(gameObject);
         }       

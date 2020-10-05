@@ -15,6 +15,6 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector2.Distance(player.transform.position, mg.transform.position));
+
     }
 }

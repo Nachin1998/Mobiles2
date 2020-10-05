@@ -5,32 +5,35 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {    
     public List<MapTile> mapTiles;
-    public float distanceFromPlayer;
-    public float maxTimer;
 
+    public float distanceBetweenTiles = 19.2f;
+    public float distanceToSpawn = 0;
+
+    float spawnPos = 0;
     Player player;
-    Vector2 velocity;
-    float timer;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         player = FindObjectOfType<Player>();
-        velocity = new Vector2(player.speed, 0);
-        timer = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        transform.position = new Vector2(player.transform.position.x + distanceFromPlayer, 0);
+        if (player.isDead)
+            return;
 
-        if(timer > maxTimer)
+        if (IsWithingSpawningDistance())
         {
+            spawnPos += distanceBetweenTiles;
             int randomMap = Random.Range(0, mapTiles.Count);
-            Instantiate(mapTiles[randomMap], transform.position, Quaternion.identity);
-            timer = 0; 
+            Instantiate(mapTiles[randomMap].gameObject, new Vector2(spawnPos, 0), Quaternion.identity, transform);
         }
+    }
+
+    bool IsWithingSpawningDistance()
+    {
+        return spawnPos - player.transform.position.x < distanceToSpawn;
     }
 }

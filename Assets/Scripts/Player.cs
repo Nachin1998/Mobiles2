@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     public float speed;
     Vector2 velocity;
 
-    bool isDead = false;
+    public GameObject mainTile;
+
+    public bool isDead = false;
     void Start()
     {
         if(playerState == PlayerState.Tutorial)
