@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
-{    
+{
     public List<MapTile> mapTiles;
 
     public float distanceBetweenTiles = 19.2f;
     public float distanceToSpawn = 0;
+
+    int[] rotationValues = new int[] { 0, 180 };
+    int[] scaleValues = new int[] { -1, 1 };
 
     float spawnPos = 0;
     Player player;
@@ -24,11 +27,19 @@ public class MapGenerator : MonoBehaviour
         if (player.isDead)
             return;
 
+        
         if (IsWithingSpawningDistance())
         {
             spawnPos += distanceBetweenTiles;
             int randomMap = Random.Range(0, mapTiles.Count);
-            Instantiate(mapTiles[randomMap].gameObject, new Vector2(spawnPos, 0), Quaternion.identity, transform);
+            GameObject GO = Instantiate(mapTiles[randomMap].gameObject, new Vector2(spawnPos, 0), Quaternion.identity, transform);
+
+            int randomRot = Random.Range(0, rotationValues.Length);
+            int randomScaleX = Random.Range(0, scaleValues.Length);
+            int randomScaleY = Random.Range(0, scaleValues.Length);
+
+            GO.transform.localScale = new Vector3(scaleValues[randomScaleX], scaleValues[randomScaleY], 1);
+            GO.transform.Rotate(rotationValues[randomRot], 0, 0);
         }
     }
 
