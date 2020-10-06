@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc026e80af119cb46bd4ccf3bbf5abd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceUntilDestroyed: 40
+  distanceUntilDestroyed: 50
 --- !u!50 &7387960747360063139
 Rigidbody2D:
   serializedVersion: 4
