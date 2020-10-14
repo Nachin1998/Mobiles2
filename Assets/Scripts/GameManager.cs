@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public PostProcessVolume ppv;
 
     [Space]
-
+    
     ColorGrading cg;
 
     [Header("Bloom")]
@@ -44,7 +44,14 @@ public class GameManager : MonoBehaviour
     float distortionValue = 0;
     LensDistortion ld;
 
+    [Header("Chromatic Aberration")]
+    public float maxAberration = 60f;
+    public float aberrationSpeed = 10f;
+    float aberrationValue = 0;
+    ChromaticAberration ca;
+
     float gameTimer = 0;
+    float timer = 0;
     void Start()
     {
         ppv.profile.TryGetSettings(out cg);
@@ -52,6 +59,7 @@ public class GameManager : MonoBehaviour
         ppv.profile.TryGetSettings(out vig);
         ppv.profile.TryGetSettings(out dof);
         ppv.profile.TryGetSettings(out ld);
+        ppv.profile.TryGetSettings(out ca);
     }
 
     void Update()
@@ -81,6 +89,17 @@ public class GameManager : MonoBehaviour
             anim.SetBool("HardestRotationLoop", true);
         }
 
+        /*if(timer <= 1)
+        {
+            timer += Time.deltaTime * aberrationSpeed;
+        }
+        else
+        {
+            timer = 0;
+        }
+
+        ca.intensity.value = Mathf.Lerp(1, 0, timer);*/
+
         if (easyPartActive)
         {
             bloomValue = Mathf.PingPong(Time.time * bloomSpeed, maxBloom);
@@ -89,7 +108,8 @@ public class GameManager : MonoBehaviour
 
         if (hardPartActive)
         {
-
+            bloomValue = Mathf.PingPong(Time.time * bloomSpeed, maxBloom);
+            bloom.intensity.value = bloomValue;
         }
 
         if (hardestPartActive)

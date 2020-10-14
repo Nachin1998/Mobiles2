@@ -8,6 +8,7 @@ public class MapGenerator : MonoBehaviour
 
     public float distanceBetweenTiles = 19.2f;
     public float distanceToSpawn = 0;
+    public float distanceUntilDestroyed = 0;
 
     int[] rotationValues = new int[] { 0, 180 };
     int[] scaleValues = new int[] { -1, 1 };

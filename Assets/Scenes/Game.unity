@@ -679,6 +679,7 @@ MonoBehaviour:
   - {fileID: 6272553938659453765, guid: 4919c63c5d3035e4ba0ff31e0841616a, type: 3}
   distanceBetweenTiles: 19.2
   distanceToSpawn: 50
+  distanceUntilDestroyed: 50
 --- !u!95 &1344750846
 Animator:
   serializedVersion: 3
@@ -710,6 +711,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ab6c11f72273741bbcec2b977fca65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1763752590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2414582589011345029, guid: d9f5639a7b2fb244fabdcd7bf696ad5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8819969821953530584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1763752591
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763752590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc694d19003542f47a2ce8d8355d9558, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1787526174
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +776,8 @@ MonoBehaviour:
   bloomSpeed: 10
   maxDistortion: 50
   distortionSpeed: 10
+  maxAberration: 1
+  aberrationSpeed: 3
 --- !u!4 &1787526176
 Transform:
   m_ObjectHideFlags: 0
@@ -770,7 +798,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8819969821953530584}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1763752590}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
@@ -865,7 +893,7 @@ PrefabInstance:
     - target: {fileID: 2106977735745581850, guid: 21789a97a63d98342a63f63f3345a440,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2106977735745581850, guid: 21789a97a63d98342a63f63f3345a440,
         type: 3}

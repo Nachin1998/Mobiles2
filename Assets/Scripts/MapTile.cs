@@ -22,6 +22,6 @@ public class MapTile : MonoBehaviour
         if (distanceFromPlayer > distanceUntilDestroyed)
         {
             Destroy(gameObject);
-        }       
+        }
     }
 }
