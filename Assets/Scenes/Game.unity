@@ -473,7 +473,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 8819969821953530585}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 3639
+    m_Bits: 256
   stopNaNPropagation: 1
   antialiasingMode: 0
   temporalAntialiasing:
@@ -720,7 +720,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1787526176}
   - component: {fileID: 1787526175}
-  - component: {fileID: 1787526177}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -747,6 +746,10 @@ MonoBehaviour:
   stage3StartTime: 45
   gameEndTime: 60
   ppv: {fileID: 1869765411}
+  maxBloom: 30
+  bloomSpeed: 10
+  maxDistortion: 50
+  distortionSpeed: 10
 --- !u!4 &1787526176
 Transform:
   m_ObjectHideFlags: 0
@@ -761,18 +764,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1787526177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787526174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c96ba92124eb71f42bf6fe2bdd2b9699, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1869765411 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8385629105042629350, guid: d9f5639a7b2fb244fabdcd7bf696ad5f,
@@ -925,6 +916,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106977735745581850, guid: 21789a97a63d98342a63f63f3345a440,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106977735745581850, guid: 21789a97a63d98342a63f63f3345a440,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21789a97a63d98342a63f63f3345a440, type: 3}

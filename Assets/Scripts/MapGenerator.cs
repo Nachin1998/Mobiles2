@@ -26,7 +26,6 @@ public class MapGenerator : MonoBehaviour
     {
         if (player.isDead)
             return;
-
         
         if (IsWithingSpawningDistance())
         {
@@ -38,7 +37,7 @@ public class MapGenerator : MonoBehaviour
             int randomScaleX = Random.Range(0, scaleValues.Length);
             int randomScaleY = Random.Range(0, scaleValues.Length);
 
-            GO.transform.localScale = new Vector3(scaleValues[randomScaleX], scaleValues[randomScaleY], 1);
+            GO.transform.localScale = new Vector2(scaleValues[randomScaleX], scaleValues[randomScaleY]);
             GO.transform.Rotate(rotationValues[randomRot], 0, 0);
         }
     }
