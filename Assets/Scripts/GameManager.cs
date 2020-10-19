@@ -16,9 +16,9 @@ public class GameManager : MonoBehaviour
     public float stage3StartTime;
     public float gameEndTime;
 
-    bool easyPartActive = false;
-    bool hardPartActive = false;
-    bool hardestPartActive = false;
+    [HideInInspector] public bool easyPartActive = false;
+    [HideInInspector] public bool hardPartActive = false;
+    [HideInInspector] public bool hardestPartActive = false;
 
     [Space]
 
@@ -52,6 +52,19 @@ public class GameManager : MonoBehaviour
 
     float gameTimer = 0;
     float timer = 0;
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     void Start()
     {
         ppv.profile.TryGetSettings(out cg);
@@ -99,7 +112,7 @@ public class GameManager : MonoBehaviour
         }
 
         ca.intensity.value = Mathf.Lerp(1, 0, timer);*/
-
+        
         if (easyPartActive)
         {
             bloomValue = Mathf.PingPong(Time.time * bloomSpeed, maxBloom);
