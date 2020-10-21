@@ -89,7 +89,6 @@ public class GameManager : MonoBehaviour
         if (gameTimer >= stage2StartTime && gameTimer < stage3StartTime)
         {
             hardPartActive = true;
-            anim.SetBool("EasyRotationEnd", true);
             anim.SetBool("HardRotationStart", true);
             anim.SetBool("HardRotationLoop", true);
         }
@@ -97,7 +96,6 @@ public class GameManager : MonoBehaviour
         if (gameTimer >= stage3StartTime && gameTimer < gameEndTime)
         {
             hardestPartActive = true;
-            anim.SetBool("HardRotationEnd", true);
             anim.SetBool("HardestRotationStart", true);
             anim.SetBool("HardestRotationLoop", true);
         }
