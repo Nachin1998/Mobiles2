@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
     ChromaticAberration ca;
 
     float gameTimer = 0;
-    float timer = 0;
     void Awake()
     {
         if (Instance == null)
@@ -99,17 +98,6 @@ public class GameManager : MonoBehaviour
             anim.SetBool("HardestRotationStart", true);
             anim.SetBool("HardestRotationLoop", true);
         }
-
-        /*if(timer <= 1)
-        {
-            timer += Time.deltaTime * aberrationSpeed;
-        }
-        else
-        {
-            timer = 0;
-        }
-
-        ca.intensity.value = Mathf.Lerp(1, 0, timer);*/
         
         if (easyPartActive)
         {

@@ -34,7 +34,6 @@ public class Background : MonoBehaviour
                 colorStart = sr.material.color;
                 colorEnd = new Color(Random.value, Random.value, Random.value);
             }
-        Debug.Log(GameManager.Instance.easyPartActive);
-        //}        
+        //}
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour//, IDragHandler, IPointerUpHandler, IPointerDownHandler
+public class Player : MonoBehaviour
 {
     public enum PlayerState
     {
@@ -16,33 +16,45 @@ public class Player : MonoBehaviour//, IDragHandler, IPointerUpHandler, IPointer
     public float speed;
     Vector2 velocity;
 
-    public GameObject mainTile;
-
     public bool isDead = false;
 
     void Start()
-    {        
-        if(playerState == PlayerState.Tutorial)
+    {
+        switch (playerState)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 45);
+            case PlayerState.Tutorial:
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+                break;
+
+            case PlayerState.Gameplay:
+                transform.rotation = Quaternion.Euler(0, 0, 45);
+                break;
+
+            default:
+                break;
         }
 
         velocity = new Vector2(speed, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isDead)
-            return;
+        if (isDead)            
+            return;        
 
         transform.Translate(velocity * Time.deltaTime);
 
 #if UNITY_STANDALONE || UNITY_EDITOR
+        KeyBoardInputs();
+
+#elif UNITY_ANDROID || UNITY_IOS
+        MobileInputs();
+
+#endif
+    }
+
+    void KeyBoardInputs()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.rotation = Quaternion.Euler(0, 0, -45);
@@ -51,14 +63,16 @@ public class Player : MonoBehaviour//, IDragHandler, IPointerUpHandler, IPointer
         {
             transform.rotation = Quaternion.Euler(0, 0, 45);
         }
+    }
 
-#elif UNITY_ANDROID || UNITY_IOS
+    void MobileInputs()
+    {
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-               transform.rotation = Quaternion.Euler(0, 0, -45);
+                transform.rotation = Quaternion.Euler(0, 0, -45);
             }
 
             if (touch.phase == TouchPhase.Ended)
@@ -66,51 +80,17 @@ public class Player : MonoBehaviour//, IDragHandler, IPointerUpHandler, IPointer
                 transform.rotation = Quaternion.Euler(0, 0, 45);
             }
         }
-#endif
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        isDead = true;        
+        Die();
     }
 
-    /*public void OnPointerDown(PointerEventData eventData)
+    void Die()
     {
-        background.color = highlightColor;
+        Handheld.Vibrate();
+        isDead = true;
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        Vector2 pos = LocalPos(eventData);
-        if (pos.magnitude > limit)
-        {
-            pos = pos.normalized * limit;
-        }
-
-        float x = pos.x / limit;
-        float y = pos.y / limit;
-
-        InputManager.Instance.SetAxis("Horizontal" + player, x);
-        InputManager.Instance.SetAxis("Vertical" + player, y);
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        background.color = startingColor;
-        InputManager.Instance.SetAxis("Horizontal" + player, 0);
-        InputManager.Instance.SetAxis("Vertical" + player, 0);
-    }
-
-    void OnDisable()
-    {
-        InputManager.Instance.SetAxis("Horizontal" + player, 0);
-        InputManager.Instance.SetAxis("Vertical" + player, 0);
-    }
-
-    Vector2 LocalPos(PointerEventData eventData)
-    {
-        Vector2 newPos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, eventData.position, eventData.enterEventCamera, out newPos);
-        return newPos;
-    }*/
 }
