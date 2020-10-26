@@ -429,6 +429,59 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &580332448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580332449}
+  - component: {fileID: 580332450}
+  m_Layer: 9
+  m_Name: ObstacleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &580332449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580332448}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3, y: -2.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580332450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580332448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7341b873ad3e49b4697e91375cea833b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnpoint: {fileID: 1104604114}
+  spawnerPingPongSpeed: 10
+  spawnerPingPongValue: 3
+  distanceFromPlayer: 50
+  spawnRate: 1
+  obstacles:
+  - {fileID: 7188720555893559172, guid: 158d1e79d04626b43b52f2d0a611731d, type: 3}
+  - {fileID: 3070554720818429942, guid: eb708402c263a6948966d64ebd626750, type: 3}
+  - {fileID: 3272503228366343770, guid: 9db72a85456b8184ba9536918a26c82f, type: 3}
+  - {fileID: 7315881689222013813, guid: 110fb46299b3d26498ef14672502a197, type: 3}
 --- !u!1 &768294371
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +742,36 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!1 &1104604113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1104604114}
+  m_Layer: 0
+  m_Name: ObstacleSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1104604114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104604113}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112010932
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +832,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1132606553, guid: 31b9964947a40ac46b68ef4311d2a562, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132606554, guid: 31b9964947a40ac46b68ef4311d2a562, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6767221437737576148, guid: 31b9964947a40ac46b68ef4311d2a562,
         type: 3}
       propertyPath: m_Name
@@ -809,14 +900,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 31b9964947a40ac46b68ef4311d2a562, type: 3}
---- !u!1 &1132606552 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6767221437737576148, guid: 31b9964947a40ac46b68ef4311d2a562,
-    type: 3}
-  m_PrefabInstance: {fileID: 1132606551}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1184375882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,9 +1463,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapTiles:
-  - {fileID: 5687895378293523906, guid: 31b9964947a40ac46b68ef4311d2a562, type: 3}
-  - {fileID: 7784094955781208100, guid: 4a2edc8efdef27346b195f2eae745f5e, type: 3}
-  - {fileID: 6272553938659453765, guid: 4919c63c5d3035e4ba0ff31e0841616a, type: 3}
+  - {fileID: 3001879459425087635, guid: 34131f57ebff18e43a1f90034f05e15c, type: 3}
+  - {fileID: 3001879459425087635, guid: 34131f57ebff18e43a1f90034f05e15c, type: 3}
+  - {fileID: 3001879459425087635, guid: 34131f57ebff18e43a1f90034f05e15c, type: 3}
   distanceBetweenTiles: 19.2
   distanceToSpawn: 50
   distanceUntilDestroyed: 50
@@ -1740,8 +1826,10 @@ MonoBehaviour:
   ppv: {fileID: 1869765411}
   maxBloom: 30
   bloomSpeed: 10
-  maxDistortion: 50
-  distortionSpeed: 10
+  maxVig: 0
+  vigSpeed: 0.05
+  maxDistortion: 70
+  distortionSpeed: 100
   maxAberration: 1
   aberrationSpeed: 3
 --- !u!4 &1787526176
@@ -1752,11 +1840,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787526174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.521687, y: -127.30592, z: -27.5}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1869765411 stripped
 MonoBehaviour:
@@ -1777,15 +1865,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 151587486, guid: 31b9964947a40ac46b68ef4311d2a562, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 151587486, guid: 31b9964947a40ac46b68ef4311d2a562, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 151587486, guid: 31b9964947a40ac46b68ef4311d2a562, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_LinearDrag
       value: 0
       objectReference: {fileID: 0}
@@ -1993,11 +2081,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2106977735745581849, guid: 21789a97a63d98342a63f63f3345a440,
-        type: 3}
-      propertyPath: mainTile
-      value: 
-      objectReference: {fileID: 1132606552}
     - target: {fileID: 2106977735745581850, guid: 21789a97a63d98342a63f63f3345a440,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2011,7 +2094,7 @@ PrefabInstance:
     - target: {fileID: 2106977735745581850, guid: 21789a97a63d98342a63f63f3345a440,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2106977735745581850, guid: 21789a97a63d98342a63f63f3345a440,
         type: 3}

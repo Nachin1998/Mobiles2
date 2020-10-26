@@ -35,8 +35,11 @@ public class GameManager : MonoBehaviour
     float bloomValue = 0;
     Bloom bloom;
 
+    [Header("Vignette")]
+    [Range(0, 0.5f)] public float maxVig = 0.2f;
+    public float vigSpeed = 10;
+    float vigValue = 0;
     Vignette vig;
-    DepthOfField dof;
 
     [Header("Lens Distortion")]
     public float maxDistortion = 60f;
@@ -69,13 +72,15 @@ public class GameManager : MonoBehaviour
         ppv.profile.TryGetSettings(out cg);
         ppv.profile.TryGetSettings(out bloom);
         ppv.profile.TryGetSettings(out vig);
-        ppv.profile.TryGetSettings(out dof);
         ppv.profile.TryGetSettings(out ld);
         ppv.profile.TryGetSettings(out ca);
     }
 
     void Update()
     {
+        if (player.isDead)
+            return;
+
         gameTimer += Time.deltaTime;
         
         if (gameTimer >= stage1StartTime && gameTimer < stage2StartTime)
@@ -107,13 +112,16 @@ public class GameManager : MonoBehaviour
 
         if (hardPartActive)
         {
-            bloomValue = Mathf.PingPong(Time.time * bloomSpeed, maxBloom);
-            bloom.intensity.value = bloomValue;
+            aberrationValue = Mathf.Lerp(0, 1, Time.time * aberrationSpeed);
+            ca.intensity.value = aberrationValue;
         }
 
         if (hardestPartActive)
         {
             distortionValue = Mathf.PingPong(Time.time * distortionSpeed, maxDistortion * 2) - maxDistortion;
+            vigValue = Mathf.PingPong(Time.time * vigSpeed, maxVig);
+
+            vig.intensity.value = vigValue;
             ld.intensity.value = distortionValue;
         }
     }

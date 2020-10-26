@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     }
 
     void Die()
-    {
+    {        
         Handheld.Vibrate();
         isDead = true;
     }

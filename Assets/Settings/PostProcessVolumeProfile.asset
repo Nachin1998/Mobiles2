@@ -15,7 +15,6 @@ MonoBehaviour:
   settings:
   - {fileID: 114065399647409342}
   - {fileID: 114981667653416594}
-  - {fileID: 114986950776308208}
   - {fileID: 114030690376900900}
   - {fileID: 114877629500603926}
   - {fileID: 114435331439328612}
@@ -1394,15 +1393,15 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   spectralLut:
-    overrideState: 0
+    overrideState: 1
     value: {fileID: 0}
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0
+    value: 1
   fastMode:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
 --- !u!114 &114877629500603926
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1436,7 +1435,7 @@ MonoBehaviour:
     value: 1
   scale:
     overrideState: 0
-    value: 1
+    value: 0.74
 --- !u!114 &114981667653416594
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1454,10 +1453,10 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   mode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
-    overrideState: 0
+    overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
   center:
     overrideState: 0
@@ -1467,7 +1466,7 @@ MonoBehaviour:
     value: 0
   smoothness:
     overrideState: 1
-    value: 0.5
+    value: 1
   roundness:
     overrideState: 1
     value: 1
@@ -1475,37 +1474,9 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   mask:
-    overrideState: 0
-    value: {fileID: 0}
+    overrideState: 1
+    value: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
     defaultState: 1
   opacity:
-    overrideState: 0
-    value: 1
---- !u!114 &114986950776308208
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
     overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 1
-  aperture:
-    overrideState: 0
-    value: 5.6
-  focalLength:
-    overrideState: 1
-    value: 24
-  kernelSize:
-    overrideState: 0
     value: 1
