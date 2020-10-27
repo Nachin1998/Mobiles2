@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Plugin : MonoBehaviour
 {
-    const string pluginName = "com.ignacio.no me acuerdo";
+    const string pluginName = "com.ignacio.unity.MyPlugin";
     static AndroidJavaClass pluginClass;
     static AndroidJavaObject pluginInstance;
 
@@ -31,14 +31,32 @@ public class Plugin : MonoBehaviour
             return pluginInstance;
         }
     }
-    void Start()
-    {
-        
+
+    float elapsedTime = 0;
+    void Start() 
+    { 
+        Debug.Log("Elapsed time" + getElapsedTime());
     }
 
-    // Update is called once per frame
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+
+        if (elapsedTime >= 5f)
+        {
+            Debug.Log("Tick: " + getElapsedTime()); 
+            elapsedTime = 0;
+        }
+    }
+
+    double getElapsedTime()
+    {
+        if(Application.platform == RuntimePlatform.Android)
+        {
+            return pluginInstance.Call<double>("getElapsedTime");
+        }
         
+        Debug.LogWarning("Not an android");
+        return 0;
     }
 }

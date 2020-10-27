@@ -20,7 +20,6 @@ public class ObstacleManager : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-
         spawnpoint.transform.position = new Vector3(0, 0, 0);
     }
 
@@ -37,8 +36,7 @@ public class ObstacleManager : MonoBehaviour
         {
             int randomObst = Random.Range(0, obstacles.Count);
             Instantiate(obstacles[randomObst], spawnpoint.transform.position, obstacles[randomObst].transform.rotation, transform);
-            obstacles[randomObst].gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
             timer = 0;
-        }     
+        }
     }
 }
