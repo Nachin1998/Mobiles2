@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plugin : MonoBehaviour
+public class AndroidPlugin : SuperPlugin
 {
     const string pluginName = "com.ignacio.unity.MyPlugin";
 
@@ -33,27 +33,18 @@ public class Plugin : MonoBehaviour
         }
     }
 
-    public void SendLog(string log)
+    public override void SendLog(string log)
     {
         PluginInstance.Call("SendLog", log);
     }
 
-    public string GetAllLogs()
+    public override string GetAllLogs()
     {
         return PluginInstance.Call<string>("GetAllLogs");
     }
 
-    public void ButtonTest()
+    public override void ShowLogsWindow()
     {
-        if(Application.platform != RuntimePlatform.Android)
-        {
-            Debug.LogWarning("Android device not detected");
-            return;
-        }
-
-        //PluginInstance.Call("SendLog", Time.time.ToString());
-        SendLog(Time.time.ToString());
-
-        //Debug.Log(GetAllLogs());
+        throw new System.NotImplementedException();
     }
 }
