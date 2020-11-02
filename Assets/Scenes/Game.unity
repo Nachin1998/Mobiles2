@@ -1833,6 +1833,7 @@ MonoBehaviour:
   distortionSpeed: 100
   maxAberration: 1
   aberrationSpeed: 3
+  gameTimer: 0
 --- !u!4 &1787526176
 Transform:
   m_ObjectHideFlags: 0
@@ -1859,6 +1860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7fe0d650b1afd4893f553b8a7c65eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
 --- !u!114 &1869765411 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8385629105042629350, guid: d9f5639a7b2fb244fabdcd7bf696ad5f,

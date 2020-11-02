@@ -5,7 +5,21 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
+    //#region SINGLETON
     public static GameManager Instance;
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+    //#endregion
 
     [Header("Gameplay", order = 0)]
     public Player player;
@@ -53,19 +67,7 @@ public class GameManager : MonoBehaviour
     float aberrationValue = 0;
     ChromaticAberration ca;
 
-    float gameTimer = 0;
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(this);
-        }
-    }
+    [HideInInspector] public float gameTimer = 0;    
 
     void Start()
     {
