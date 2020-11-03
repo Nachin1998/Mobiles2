@@ -1,21 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 
 public class PluginTester : MonoBehaviour
 {    
     SuperPlugin sp = null;
-    public TextMeshProUGUI text;
     private void Start()
     {
         sp = SuperPlugin.GetInstance();
     }
 
-    public void ButtonTest()
+    public void ShowLogs(TextMeshProUGUI text)
     {
-        text.text = sp.GetAllLogs();
+        text.text = sp.GetAllLogs();    
         sp.SendLog(Time.time.ToString());
+    }
+
+    public void ClearLogs()
+    {
+        sp.ShowAlertDialog(new string[] { "Warning", "You are about to clear all logs. Are you sure?", "Confirm", "Cancel" }, (int obj) =>
+        {
+            Debug.Log("Local handler called: " + obj);
+            sp.ClearLogs();
+        });
     }
 }

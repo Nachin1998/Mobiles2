@@ -11,4 +11,17 @@ public class PCPlugin : SuperPlugin
     {
         return "Not in Android";        
     }
+    public override void ShowAlertDialog(string[] strings, System.Action<int> handler = null)
+    {
+        if (strings.Length < 3)
+        {
+            Debug.LogError("Not an android device");
+            return;
+        }
+    }
+
+    public override void ClearLogs()
+    {
+        Debug.Log("Cant clear logs, not on Android device");
+    }
 }

@@ -39,6 +39,11 @@ public class MyPlugin {
         logs.add(log);
     }
 
+    public void ClearLogs()
+    {
+        logs.clear();
+    }
+
     public String GetAllLogs()
     {
         Log.d(PLUGIN_TAG, "GetAllLogs() function called");

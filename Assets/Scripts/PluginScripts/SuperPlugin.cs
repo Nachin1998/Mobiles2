@@ -13,4 +13,6 @@
 
     public abstract void SendLog(string log);
     public abstract string GetAllLogs();
+    public abstract void ShowAlertDialog(string[] strings, System.Action<int> handler = null);
+    public abstract void ClearLogs();
 }
