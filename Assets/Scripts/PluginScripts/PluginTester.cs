@@ -11,16 +11,17 @@ public class PluginTester : MonoBehaviour
 
     public void ShowLogs(TextMeshProUGUI text)
     {
-        text.text = sp.GetAllLogs();    
         sp.SendLog(Time.time.ToString());
+        text.text = sp.GetAllLogs();
     }
 
-    public void ClearLogs()
+    public void ClearLogs(TextMeshProUGUI text)
     {
         sp.ShowAlertDialog(new string[] { "Warning", "You are about to clear all logs. Are you sure?", "Confirm", "Cancel" }, (int obj) =>
         {
             Debug.Log("Local handler called: " + obj);
             sp.ClearLogs();
+            text.text = "Logs cleared";
         });
     }
 }
