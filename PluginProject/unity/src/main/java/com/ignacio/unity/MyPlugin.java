@@ -55,10 +55,8 @@ public class MyPlugin {
         return aux;
     }
 
-    public void ShowAlertView(String[] strings, final AlertViewCallback callback)
-    {
-        if(strings.length<3)
-        {
+    public void ShowAlertView(String[] strings, final AlertViewCallback callback) {
+        if (strings.length < 3) {
             Log.i(PLUGIN_TAG, "Error - Expected at least 3 string, got " + strings.length);
             return;
         }
@@ -74,16 +72,16 @@ public class MyPlugin {
         AlertDialog alertDialog = new AlertDialog.Builder(mainActivity)
                 .setTitle(strings[0])
                 .setMessage(strings[1])
+                .setNegativeButton(strings[3], new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                    }
+                })
                 .setCancelable(false)
                 .create();
         alertDialog.setButton(alertDialog.BUTTON_NEUTRAL, strings[2], myClickListener);
-        if(strings.length>3)
-        {
-            alertDialog.setButton(alertDialog.BUTTON_NEGATIVE, strings[3], myClickListener);
-        }
         if(strings.length>4)
         {
-            alertDialog.setButton(alertDialog.BUTTON_POSITIVE, strings[4], myClickListener);
+            alertDialog.setButton(alertDialog.BUTTON_POSITIVE, strings[2], myClickListener);
         }
         alertDialog.show();
     }
