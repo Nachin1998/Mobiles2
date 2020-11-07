@@ -78,11 +78,7 @@ public class MyPlugin {
                 })
                 .setCancelable(false)
                 .create();
-        alertDialog.setButton(alertDialog.BUTTON_NEUTRAL, strings[2], myClickListener);
-        if(strings.length>4)
-        {
-            alertDialog.setButton(alertDialog.BUTTON_POSITIVE, strings[2], myClickListener);
-        }
+        alertDialog.setButton(alertDialog.BUTTON_POSITIVE, strings[2], myClickListener);
         alertDialog.show();
     }
 }

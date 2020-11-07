@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     public float speed;
     Vector2 velocity;
 
+    public ParticleSystem psDeath;
+    public ParticleSystem psTrail;
     public bool isDead = false;
 
     void Start()
@@ -81,13 +84,20 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Die();
+        StartCoroutine(Die());        
     }
 
-    void Die()
-    {        
+    IEnumerator Die()
+    {
+        velocity = Vector2.zero;
+        psDeath.Play();
+        psTrail.Stop();
         Handheld.Vibrate();
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
         isDead = true;
+        yield return new WaitForSeconds(0.5f);
+        psDeath.gameObject.SetActive(false);
     }
 
 }
