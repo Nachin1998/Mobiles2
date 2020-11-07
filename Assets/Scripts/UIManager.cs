@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     GameManager gm;
     public TextMeshProUGUI gameTimeText;
+    public TextMeshProUGUI messageText;
     public GameObject deathMenu;
 
     Player player;
@@ -25,6 +26,10 @@ public class UIManager : MonoBehaviour
         if (player.isDead)
         {
             StartCoroutine(ActivateDelayedMenu(deathMenu, 1f));
+            switch (GameManager.Instance.gameTimer)
+            {
+                
+            }
             gameTimeText.text = gm.gameTimer.ToString("F2");
         }
     }

@@ -11,8 +11,6 @@ public class ScenesManager : MonoBehaviour
     public void ReplayLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //GameManager.Instance.player.isDead = false;
-        //GameManager.Instance.gameTimer = 0;
     }
 
     public void GoToMainMenu()

@@ -5,11 +5,22 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    
     [Header("Gameplay")]
     public Player player;
     public Animator camAnimHolder;
 
+    public enum CurrentLevel
+    {
+        Level1, 
+        Level2,
+        Level3
+    }
+    public CurrentLevel currentLevel;
+
     public List<Level> levelParts;
+    
     [HideInInspector] public List<bool> activeLevelPart;
 
     [HideInInspector] public bool gameOver = false;
@@ -19,6 +30,9 @@ public class GameManager : MonoBehaviour
 
     [Space]
 
+    [Header("Color Grading")]
+    public float maxTemperature = 30;
+    public float temperatureSpeed = 10;
     ColorGrading cg;
 
     [Header("Bloom")]
@@ -37,7 +51,12 @@ public class GameManager : MonoBehaviour
     LensDistortion ld;
 
     [HideInInspector] public float gameTimer = 0;
+    [HideInInspector] public bool levelFinished = false;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         //player = FindObjectOfType<Player>();
@@ -81,6 +100,7 @@ public class GameManager : MonoBehaviour
 
                     case 1:
                         vig.intensity.value = Mathf.PingPong(Time.time * vigSpeed, maxVig);
+                        cg.temperature.value = Mathf.PingPong(Time.time * temperatureSpeed, maxTemperature * 2) - maxTemperature;
                         break;
 
                     case 2:

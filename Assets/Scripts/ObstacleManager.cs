@@ -13,6 +13,7 @@ public class ObstacleManager : MonoBehaviour
     public float spawnRate;
     public List<Obstacle> obstacles;
 
+    public float distanceToDestroy = 60;
     Player player;
     float timer;
     // Start is called before the first frame update
@@ -34,8 +35,10 @@ public class ObstacleManager : MonoBehaviour
         if(timer >= spawnRate)
         {
             int randomObst = Random.Range(0, obstacles.Count);
-            Instantiate(obstacles[randomObst], spawnpoint.transform.position, obstacles[randomObst].transform.rotation, transform);
+            Instantiate(obstacles[randomObst].gameObject, spawnpoint.transform.position, obstacles[randomObst].transform.rotation, transform);
+            
             timer = 0;
         }
+        
     }
 }

@@ -7,8 +7,8 @@ public class Obstacle : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<Player>();
-        this.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+        player = FindObjectOfType<Player>();        
+        GetComponent<SpriteRenderer>().color = Color.blue;
     }
 
     // Update is called once per frame
