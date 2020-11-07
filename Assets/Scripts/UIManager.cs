@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     GameManager gm;
+    public GameObject endMenu;
     public TextMeshProUGUI gameTimeText;
     public TextMeshProUGUI messageText;
-    public GameObject deathMenu;
+
+    public VirtualButton nextLevelButton;
+    public VirtualButton replayButton;
 
     Player player;
     void Start()
@@ -17,7 +19,10 @@ public class UIManager : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
 
         player = FindObjectOfType<Player>();
-        deathMenu.SetActive(false);
+        endMenu.SetActive(false);
+
+        nextLevelButton.gameObject.SetActive(false);
+        replayButton.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,12 +30,18 @@ public class UIManager : MonoBehaviour
     {
         if (player.isDead)
         {
-            StartCoroutine(ActivateDelayedMenu(deathMenu, 1f));
-            switch (GameManager.Instance.gameTimer)
+            gameTimeText.text = "Time: " + gm.gameTimer.ToString("F2");
+            StartCoroutine(ActivateDelayedMenu(endMenu, 1f));
+            if (gm.finishedLevel)
             {
-                
+                messageText.text = "Congratulations! You won!";
+                nextLevelButton.gameObject.SetActive(true);
             }
-            gameTimeText.text = gm.gameTimer.ToString("F2");
+            else
+            {
+                messageText.text = "Better luck next time";
+                replayButton.gameObject.SetActive(true);
+            }
         }
     }
 

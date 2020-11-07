@@ -18,12 +18,13 @@ public class GameManager : MonoBehaviour
         Level3
     }
     public CurrentLevel currentLevel;
+    public float gameEndTime = 100;
 
     public List<Level> levelParts;
     
     [HideInInspector] public List<bool> activeLevelPart;
 
-    [HideInInspector] public bool gameOver = false;
+    [HideInInspector] public bool finishedLevel = false;
 
     [Header("Effects")]
     public PostProcessVolume ppv;
@@ -59,9 +60,6 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        //player = FindObjectOfType<Player>();
-        //camAnimHolder = GameObject.Find("CameraHolder").GetComponent<Animator>();
-        //ppv = FindObjectOfType<PostProcessVolume>();
 
         ppv.profile.TryGetSettings(out cg);
         ppv.profile.TryGetSettings(out bloom);
@@ -76,9 +74,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (player.isDead)
+        if (player.isDead)        
             return;
-
+        
         gameTimer += Time.deltaTime;
 
         for (int i = 0; i < levelParts.Count; i++)
@@ -99,18 +97,24 @@ public class GameManager : MonoBehaviour
                         break;
 
                     case 1:
-                        vig.intensity.value = Mathf.PingPong(Time.time * vigSpeed, maxVig);
-                        cg.temperature.value = Mathf.PingPong(Time.time * temperatureSpeed, maxTemperature * 2) - maxTemperature;
+                        cg.temperature.value = Mathf.PingPong(Time.time * temperatureSpeed, maxTemperature);
+                        //cg.temperature.value = Mathf.PingPong(Time.time * temperatureSpeed, maxTemperature * 2) - maxTemperature;
                         break;
 
                     case 2:
                         //ld.intensity.value = Mathf.PingPong(Time.time * distortionSpeed, maxDistortion * 2) - maxDistortion;
+                        vig.intensity.value = Mathf.PingPong(Time.time * vigSpeed, maxVig);
                         break;
 
                     default:
                         break;
                 }
             }
+        }
+
+        if(gameTimer >= gameEndTime)
+        {
+            finishedLevel = true;
         }
     }
 }

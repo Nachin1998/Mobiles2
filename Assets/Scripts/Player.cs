@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     public ParticleSystem psDeath;
     public ParticleSystem psTrail;
+    public bool deathAnimOn = false;
     public bool isDead = false;
 
     void Start()
@@ -93,6 +94,7 @@ public class Player : MonoBehaviour
         psDeath.Play();
         psTrail.Stop();
         Handheld.Vibrate();
+        deathAnimOn = true;
         yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         isDead = true;
