@@ -7,8 +7,22 @@ public class Obstacle : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<Player>();        
-        GetComponent<SpriteRenderer>().color = Color.blue;
+        player = FindObjectOfType<Player>();
+        switch (GameManager.Instance.currentLevel)
+        {
+            case GameManager.CurrentLevel.Level1:
+                GetComponent<SpriteRenderer>().color = Color.blue;
+                break;
+            case GameManager.CurrentLevel.Level2:
+                GetComponent<SpriteRenderer>().color = Color.white;
+                break;
+            case GameManager.CurrentLevel.Level3:
+                GetComponent<SpriteRenderer>().color = Color.blue;
+                break;
+            default:
+                break;
+        }
+        
     }
 
     // Update is called once per frame
