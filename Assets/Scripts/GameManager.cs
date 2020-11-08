@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour
     Bloom bloom;
 
     [Header("Vignette")]
-    [Range(0, 0.5f)] public float maxVig = 0.2f;
+    [Range(0, 0.3f)] public float maxVig = 0.2f;
     public float vigSpeed = 10;
     Vignette vig;
 
@@ -98,11 +97,9 @@ public class GameManager : MonoBehaviour
 
                     case 1:
                         cg.temperature.value = Mathf.PingPong(Time.time * temperatureSpeed, maxTemperature);
-                        //cg.temperature.value = Mathf.PingPong(Time.time * temperatureSpeed, maxTemperature * 2) - maxTemperature;
                         break;
 
                     case 2:
-                        //ld.intensity.value = Mathf.PingPong(Time.time * distortionSpeed, maxDistortion * 2) - maxDistortion;
                         vig.intensity.value = Mathf.PingPong(Time.time * vigSpeed, maxVig);
                         break;
 
