@@ -873,8 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpoint: {fileID: 1104604114}
-  spawnerPingPongSpeed: 10
-  spawnerPingPongValue: 3
+  posRange: 3.5
   distanceFromPlayer: 50
   spawnRate: 1
   obstacles:
@@ -1577,12 +1576,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993883208}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 372.30362, y: 151.50113, z: -334.9375}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 376.76877, y: 151.5011, z: -334.98575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1302864604}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &993883210
 MonoBehaviour:
@@ -1624,7 +1623,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112010932
 GameObject:
@@ -3016,8 +3015,9 @@ Transform:
   - {fileID: 1170374250}
   - {fileID: 580332449}
   - {fileID: 350111668}
+  - {fileID: 993883209}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1344750843
 GameObject:
@@ -4510,7 +4510,7 @@ PrefabInstance:
     - target: {fileID: 8446991093752925372, guid: d9f5639a7b2fb244fabdcd7bf696ad5f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8446991093752925372, guid: d9f5639a7b2fb244fabdcd7bf696ad5f,
         type: 3}

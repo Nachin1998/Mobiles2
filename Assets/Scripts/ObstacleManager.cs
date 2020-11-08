@@ -5,8 +5,7 @@ public class ObstacleManager : MonoBehaviour
 {
     [Header("Spawner")]
     public Transform spawnpoint;
-    public float spawnerPingPongSpeed;
-    public float spawnerPingPongValue;    
+    public float posRange;
 
     [Header("Obstacles")]
     public float distanceFromPlayer;
@@ -30,13 +29,13 @@ public class ObstacleManager : MonoBehaviour
             return;
 
         timer += Time.deltaTime;
-        spawnpoint.transform.position = new Vector3(player.transform.position.x + distanceFromPlayer, Mathf.PingPong(Time.time * Random.Range(0, spawnerPingPongSpeed), spawnerPingPongValue * 2) - spawnerPingPongValue, 0);
 
-        if(timer >= spawnRate)
+        spawnpoint.transform.position = new Vector3(player.transform.position.x + distanceFromPlayer, spawnpoint.transform.position.y, 0);
+        if (timer >= spawnRate)
         {
             int randomObst = Random.Range(0, obstacles.Count);
             Instantiate(obstacles[randomObst].gameObject, spawnpoint.transform.position, obstacles[randomObst].transform.rotation, transform);
-            
+            spawnpoint.transform.position = new Vector3(player.transform.position.x + distanceFromPlayer, Random.Range(-posRange, posRange), 0);
             timer = 0;
         }
         
