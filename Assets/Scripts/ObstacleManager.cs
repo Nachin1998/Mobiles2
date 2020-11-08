@@ -31,6 +31,7 @@ public class ObstacleManager : MonoBehaviour
         timer += Time.deltaTime;
 
         spawnpoint.transform.position = new Vector3(player.transform.position.x + distanceFromPlayer, spawnpoint.transform.position.y, 0);
+
         if (timer >= spawnRate)
         {
             int randomObst = Random.Range(0, obstacles.Count);

@@ -5,6 +5,7 @@ public class MapTile : MonoBehaviour
     // Start is called before the first frame update
     public float distanceUntilDestroyed;
     Player player;
+    
 
     void Start()
     {
