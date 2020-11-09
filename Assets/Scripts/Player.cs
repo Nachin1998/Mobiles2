@@ -12,12 +12,14 @@ public class Player : MonoBehaviour
     [Header("Player")]
     public PlayerState playerState;
     public float speed;
-    Vector2 velocity;
 
     public ParticleSystem psDeath;
     public ParticleSystem psTrail;
+
     public bool deathAnimOn = false;
     public bool isDead = false;
+
+    Vector2 velocity;
 
     void Start()
     {
@@ -41,16 +43,64 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (isDead)            
-            return;        
+            return;
 
-        transform.Translate(velocity * Time.deltaTime);
+        switch (playerState)
+        {
+            case PlayerState.Tutorial:
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                transform.Translate(velocity * Time.deltaTime);
+                Tutorial();
+                break;
 
+            case PlayerState.Gameplay:
+                transform.Translate(velocity * Time.deltaTime);
 #if UNITY_STANDALONE || UNITY_EDITOR
-        KeyBoardInputs();
+                KeyBoardInputs();
 
 #elif UNITY_ANDROID || UNITY_IOS
-        MobileInputs();
+                MobileInputs();
 
+#endif
+                break;
+
+            default:
+                break;
+        }
+
+
+    }
+
+    void Tutorial()
+    {
+#if UNITY_STANDALONE || UNITY_EDITOR
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            playerState = PlayerState.Gameplay;
+            transform.rotation = Quaternion.Euler(0, 0, -45);
+            Time.timeScale = 1;            
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
+
+#elif UNITY_ANDROID || UNITY_IOS
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, -45);
+                Time.timeScale = 1;
+                playerState = PlayerState.Gameplay;
+            }
+        else
+        {
+            Time.timeScale = 0;
+        }
+        }
 #endif
     }
 
@@ -93,12 +143,20 @@ public class Player : MonoBehaviour
         velocity = Vector2.zero;
         psDeath.Play();
         psTrail.Stop();
+
+#if UNITY_ANDROID || UNITY_IOS
         Handheld.Vibrate();
+#endif
+
         deathAnimOn = true;
+
         yield return new WaitForSeconds(0.5f);
+
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         isDead = true;
         yield return new WaitForSeconds(0.5f);
+
+
         psDeath.gameObject.SetActive(false);
     }
 

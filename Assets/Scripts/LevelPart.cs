@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Level part", menuName = "Level Part")]
-public class Level : ScriptableObject
+public class LevelPart : ScriptableObject
 {
     public string startAnimationParameter;
     public string loopAnimationParameter;

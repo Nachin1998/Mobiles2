@@ -5,27 +5,24 @@ public class Obstacle : MonoBehaviour
     public float distanceToDestroy;
     Player player;
 
-    SpriteRenderer sr;
     void Start()
     {
         player = FindObjectOfType<Player>();
 
         if (GetComponent<SpriteRenderer>() != null)
         {
-            sr = GetComponent<SpriteRenderer>();
-
             switch (GameManager.Instance.currentLevel)
             {
                 case GameManager.CurrentLevel.Level1:
-                    sr.color = Color.blue;
+                    GetComponent<SpriteRenderer>().color = Color.blue;
                     break;
 
                 case GameManager.CurrentLevel.Level2:
-                    sr.color = Color.red;
+                    GetComponent<SpriteRenderer>().color = Color.red;
                     break;
 
                 case GameManager.CurrentLevel.Level3:
-                    sr.color = Color.white;
+                    GetComponent<SpriteRenderer>().color = Color.white;
                     break;
 
                 default:

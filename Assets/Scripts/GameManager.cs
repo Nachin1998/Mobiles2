@@ -17,9 +17,10 @@ public class GameManager : MonoBehaviour
         Level3
     }
     public CurrentLevel currentLevel;
+
     public float gameEndTime = 100;
 
-    public List<Level> levelParts;
+    public List<LevelPart> levelParts;
     
     [HideInInspector] public List<bool> activeLevelPart;
 

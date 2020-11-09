@@ -16,13 +16,11 @@ public class PluginTester : MonoBehaviour
 
     public void SendGameTimeLog()
     {
-        sp.SendLog(GameManager.Instance.gameTimer.ToString());
+        sp.SendLog("Level " + (((int)GameManager.Instance.currentLevel) + 1).ToString() + " time: " + GameManager.Instance.gameTimer.ToString());
     }
 
     public void ShowLogs(TextMeshProUGUI text)
     {
-        //sp.SendLog(Time.time.ToString());
-        //sp.SendLog(GameManager.Instance.gameTimer.ToString());
         text.text = sp.GetAllLogs();
     }
 

@@ -6,6 +6,8 @@ public class UIManager : MonoBehaviour
 {
     GameManager gm;
     public GameObject endMenu;
+    public TextMeshProUGUI tutorialText;
+
     public TextMeshProUGUI gameTimeText;
     public TextMeshProUGUI messageText;
 
@@ -27,6 +29,18 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(player.playerState == Player.PlayerState.Tutorial)
+        {
+            tutorialText.text = "Hold Tap/Spacebar to move down";
+        }
+        else
+        {
+            if (tutorialText.isActiveAndEnabled)
+            {
+                tutorialText.gameObject.SetActive(false);
+            }
+        }
+
         if (player.isDead)
         {
             gameTimeText.text = "Time: " + gm.gameTimer.ToString("F2");

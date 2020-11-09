@@ -14,9 +14,6 @@ public class MapTile : MonoBehaviour
 
     private void Update()
     {
-        if (player.isDead)
-            return;
-
         float distanceFromPlayer = (player.gameObject.transform.position - transform.position).x;
         if (distanceFromPlayer > distanceUntilDestroyed)
         {

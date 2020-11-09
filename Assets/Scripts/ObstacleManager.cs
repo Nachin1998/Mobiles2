@@ -15,11 +15,11 @@ public class ObstacleManager : MonoBehaviour
     public float distanceToDestroy = 60;
     Player player;
     float timer;
-    // Start is called before the first frame update
+
     void Start()
     {
         player = FindObjectOfType<Player>();
-        spawnpoint.transform.position = new Vector3(0, 0, 0);
+        spawnpoint.transform.position = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -38,7 +38,6 @@ public class ObstacleManager : MonoBehaviour
             Instantiate(obstacles[randomObst].gameObject, spawnpoint.transform.position, obstacles[randomObst].transform.rotation, transform);
             spawnpoint.transform.position = new Vector3(player.transform.position.x + distanceFromPlayer, Random.Range(-posRange, posRange), 0);
             timer = 0;
-        }
-        
+        }        
     }
 }
