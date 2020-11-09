@@ -31,16 +31,38 @@ public class UIManager : MonoBehaviour
         {
             gameTimeText.text = "Time: " + gm.gameTimer.ToString("F2");
             StartCoroutine(ActivateDelayedMenu(endMenu, 1f));
-            if (gm.finishedLevel)
+
+            switch (gm.currentLevel)
             {
-                messageText.text = "Congratulations! You won!";
-                nextLevelButton.gameObject.SetActive(true);
-            }
-            else
-            {
-                messageText.text = "Better luck next time";
-                replayButton.gameObject.SetActive(true);
-            }
+                case GameManager.CurrentLevel.Level1:
+                case GameManager.CurrentLevel.Level2:
+                    if (gm.finishedLevel)
+                    {
+                        messageText.text = "Congratulations! You won!";
+                        nextLevelButton.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        replayButton.gameObject.SetActive(true);                        
+                        messageText.text = "Better luck next time";
+                    }
+                    break;
+
+                case GameManager.CurrentLevel.Level3:
+                    if (gm.finishedLevel)
+                    {
+                        messageText.text = "Congratulations! You won!";
+                    }
+                    else
+                    {
+                        messageText.text = "Better luck next time";
+                    }
+                    replayButton.gameObject.SetActive(true);
+                    break;
+
+                default:
+                    break;
+            }           
         }
     }
 

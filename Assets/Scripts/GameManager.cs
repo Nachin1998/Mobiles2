@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+
     void Start()
     {
 
@@ -97,10 +98,11 @@ public class GameManager : MonoBehaviour
 
                     case 1:
                         cg.temperature.value = Mathf.PingPong(Time.time * temperatureSpeed, maxTemperature);
+                        vig.intensity.value = Mathf.PingPong(Time.time * vigSpeed, maxVig);
                         break;
 
                     case 2:
-                        vig.intensity.value = Mathf.PingPong(Time.time * vigSpeed, maxVig);
+                        ld.intensity.value = Mathf.PingPong(Time.time * distortionSpeed, maxDistortion * 2) - maxDistortion;
                         break;
 
                     default:

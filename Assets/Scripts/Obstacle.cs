@@ -10,7 +10,7 @@ public class Obstacle : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
 
-        if (GetComponent<SpriteRenderer>() == null)
+        if (GetComponent<SpriteRenderer>() != null)
         {
             sr = GetComponent<SpriteRenderer>();
 
