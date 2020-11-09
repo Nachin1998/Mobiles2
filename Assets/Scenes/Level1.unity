@@ -286,10 +286,10 @@ RectTransform:
   m_Father: {fileID: 964954687}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.17077085, y: 0.5407407}
-  m_AnchorMax: {x: 0.52024996, y: 0.6814815}
-  m_AnchoredPosition: {x: -0.7000122, y: 29.669998}
-  m_SizeDelta: {x: -40.009216, y: -85.85275}
+  m_AnchorMin: {x: 0.24058335, y: 0.5582593}
+  m_AnchorMax: {x: 0.59668744, y: 0.73700005}
+  m_AnchoredPosition: {x: 8.5, y: -2.5}
+  m_SizeDelta: {x: 2.4488525, y: -1.0055695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &142096068
 MonoBehaviour:
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Tutorial>
+  m_text: Hold Tap/Spacebar to move... down?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22395a249264b754797b3f13d52300bb, type: 2}
   m_sharedMaterial: {fileID: 21159604786431942, guid: 22395a249264b754797b3f13d52300bb,
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: 18
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -379,12 +379,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 142096068}
-    characterCount: 10
+    characterCount: 34
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 2
+    spaceCount: 4
+    wordCount: 6
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1461,7 +1461,7 @@ Animator:
   m_GameObject: {fileID: 1112010932}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2444974dbce452f43ab6126f2a79cf64, type: 2}
+  m_Controller: {fileID: 22100000, guid: 314c0dc2d6eec454bb8ab7ef11542ec7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

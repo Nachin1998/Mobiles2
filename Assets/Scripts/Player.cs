@@ -79,11 +79,6 @@ public class Player : MonoBehaviour
         {
             playerState = PlayerState.Gameplay;
             transform.rotation = Quaternion.Euler(0, 0, -45);
-            Time.timeScale = 1;            
-        }
-        else
-        {
-            Time.timeScale = 0;
         }
 
 #elif UNITY_ANDROID || UNITY_IOS
@@ -93,14 +88,10 @@ public class Player : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 transform.rotation = Quaternion.Euler(0, 0, -45);
-                Time.timeScale = 1;
                 playerState = PlayerState.Gameplay;
             }
-        else
-        {
-            Time.timeScale = 0;
         }
-        }
+        
 #endif
     }
 

@@ -5,6 +5,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class MyPlugin {
@@ -37,6 +43,7 @@ public class MyPlugin {
     {
         Log.d(GAME_TAG, log);
         logs.add(log);
+        //SaveData(log);
     }
 
     public void ClearLogs()
@@ -81,4 +88,19 @@ public class MyPlugin {
         alertDialog.setButton(alertDialog.BUTTON_POSITIVE, strings[2], myClickListener);
         alertDialog.show();
     }
+
+    //public void SaveData(String string){
+//
+//        File file = new File("../logs.txt");
+//        try {
+//            FileWriter fw = new FileWriter(file);
+//            PrintWriter pw = new PrintWriter(fw);
+//
+//            pw.println(string);
+//
+//            pw.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
