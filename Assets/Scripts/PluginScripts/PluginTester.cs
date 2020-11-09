@@ -9,9 +9,20 @@ public class PluginTester : MonoBehaviour
         sp = SuperPlugin.GetInstance();
     }
 
+    public void SendLog(string log)
+    {
+        sp.SendLog(log);
+    }
+
+    public void SendGameTimeLog()
+    {
+        sp.SendLog(GameManager.Instance.gameTimer.ToString());
+    }
+
     public void ShowLogs(TextMeshProUGUI text)
     {
-        sp.SendLog(Time.time.ToString());
+        //sp.SendLog(Time.time.ToString());
+        //sp.SendLog(GameManager.Instance.gameTimer.ToString());
         text.text = sp.GetAllLogs();
     }
 

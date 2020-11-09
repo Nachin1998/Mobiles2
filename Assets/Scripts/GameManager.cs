@@ -84,8 +84,8 @@ public class GameManager : MonoBehaviour
             if (gameTimer >= levelParts[i].startingTime && gameTimer < levelParts[i].endingTime)
             {
                 activeLevelPart[i] = true;
-                camAnimHolder.SetBool(levelParts[i].startAnimation, true);
-                camAnimHolder.SetBool(levelParts[i].loopAnimation, true);
+                camAnimHolder.SetBool(levelParts[i].startAnimationParameter, true);
+                camAnimHolder.SetBool(levelParts[i].loopAnimationParameter, true);
             }
 
             if (activeLevelPart[i])

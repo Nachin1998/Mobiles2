@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd79a2995bea84c4f955020ec23e2e57, type: 3}
   m_Name: Level3Part2
   m_EditorClassIdentifier: 
-  startAnimation: HardStart
-  loopAnimation: HardLoop
+  startAnimationParameter: HardStart
+  loopAnimationParameter: HardLoop
   startingTime: 60
   endingTime: 105

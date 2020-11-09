@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd79a2995bea84c4f955020ec23e2e57, type: 3}
   m_Name: Level3Part1
   m_EditorClassIdentifier: 
-  startAnimation: EasyStart
-  loopAnimation: EasyLoop
+  startAnimationParameter: EasyStart
+  loopAnimationParameter: EasyLoop
   startingTime: 15
   endingTime: 60

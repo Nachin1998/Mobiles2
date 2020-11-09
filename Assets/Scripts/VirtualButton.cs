@@ -5,6 +5,8 @@ using TMPro;
 
 public class VirtualButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    public TextMeshProUGUI messageToActivate;
+    public float messageValue;
     public bool buttonPressed;
     public bool buttonHighlighted;
 
@@ -45,6 +47,18 @@ public class VirtualButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
                 colorTimer = 0;
                 colorStart = button.color;
                 colorEnd = new Color(Random.value, Random.value, Random.value, 1);
+            }
+
+            if (messageToActivate)
+            {
+                messageToActivate.text = "Time to win: " + messageValue.ToString("F2");
+            }
+        }
+        else
+        {
+            if (messageToActivate)
+            {
+                messageToActivate.text = "";
             }
         }
     }
