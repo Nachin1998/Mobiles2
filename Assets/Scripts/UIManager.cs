@@ -29,14 +29,20 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.playerState != Player.PlayerState.Tutorial)
+        if(tutorialText != null)
         {
-            tutorialText.gameObject.SetActive(false);
-        }
+            if (player.playerState != Player.PlayerState.Tutorial)
+            {
+                tutorialText.gameObject.SetActive(false);
+            }
+        }        
 
         if (player.isDead)
         {
-            tutorialText.gameObject.SetActive(false);
+            if (tutorialText != null)
+            {
+                tutorialText.gameObject.SetActive(false);
+            }
 
             gameTimeText.text = "Time: " + gm.gameTimer.ToString("F2");
             StartCoroutine(ActivateDelayedMenu(endMenu, 1f));

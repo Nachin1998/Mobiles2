@@ -3965,7 +3965,7 @@ RectTransform:
   m_AnchorMin: {x: 0.13785419, y: 0.72762966}
   m_AnchorMax: {x: 0.8652083, y: 0.9323704}
   m_AnchoredPosition: {x: -2.5, y: 4}
-  m_SizeDelta: {x: -4.512207, y: -22.26448}
+  m_SizeDelta: {x: 55.203857, y: -22.26448}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1102933335
 MonoBehaviour:
@@ -3985,7 +3985,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Psychic Psychosis
+  m_text: Psychedelic Psychosis
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22395a249264b754797b3f13d52300bb, type: 2}
   m_sharedMaterial: {fileID: 21159604786431942, guid: 22395a249264b754797b3f13d52300bb,
@@ -4055,7 +4055,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1102933335}
-    characterCount: 17
+    characterCount: 21
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -6177,10 +6177,10 @@ RectTransform:
   m_Father: {fileID: 1137872106}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3547021, y: 0.208}
-  m_AnchorMax: {x: 0.646, y: 0.39814815}
-  m_AnchoredPosition: {x: -0.5, y: -109}
-  m_SizeDelta: {x: 1.7658081, y: 5.2872314}
+  m_AnchorMin: {x: 0.3547021, y: 0.12100001}
+  m_AnchorMax: {x: 0.646, y: 0.3035185}
+  m_AnchoredPosition: {x: -0.5, y: -11}
+  m_SizeDelta: {x: 1.7658081, y: 13.287231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680213144
 MonoBehaviour:

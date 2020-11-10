@@ -89,18 +89,17 @@ public class MyPlugin {
         alertDialog.show();
     }
 
-    //public void SaveData(String string){
-//
-//        File file = new File("../logs.txt");
-//        try {
-//            FileWriter fw = new FileWriter(file);
-//            PrintWriter pw = new PrintWriter(fw);
-//
-//            pw.println(string);
-//
-//            pw.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void SaveData(String string){
+
+        File file = new File("../logs.txt");
+        try {
+            FileWriter fw = new FileWriter(file);
+            PrintWriter pw = new PrintWriter(fw);
+
+            pw.println(string);
+          pw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
