@@ -1,27 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     Player player;
-    AudioSource audioSource;
+    AudioSource backgroundSong;
+    public Slider slider;
 
+    public static float volume = 1f;
     public AudioClip playerDeathSound;
     bool hasPlayed = false;
 
     void Start()
     {
         player = FindObjectOfType<Player>();
-        audioSource = GetComponent<AudioSource>();
+        backgroundSong = Camera.main.GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if(player.deathAnimOn && !hasPlayed)
+        if (slider != null)
         {
-            audioSource.PlayOneShot(playerDeathSound, 5f);
-            hasPlayed = true;
+            volume = slider.value;
         }
+
+        backgroundSong.volume = volume;
+
+        if (player != null)
+        {
+            if (player.deathAnimOn && !hasPlayed)
+            {
+                backgroundSong.PlayOneShot(playerDeathSound, 5f);
+                hasPlayed = true;
+            }
+        }        
     }
 }
